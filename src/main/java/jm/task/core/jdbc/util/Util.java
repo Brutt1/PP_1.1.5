@@ -14,6 +14,8 @@ import java.util.Properties;
 
 public class Util {
     // реализуйте настройку соеденения с БД
+    private static SessionFactory sessionFactory;
+
     public static Connection getConnection() {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mytest", "root", "1234");
@@ -24,9 +26,6 @@ public class Util {
             throw new RuntimeException(e);
         }
     }
-
-    private static SessionFactory sessionFactory;
-
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
